@@ -47,7 +47,7 @@ function App() {
 
             {[
               { label: 'Lower', action: () => setCount(count - 1) },
-              { label: 'Reset', action: () => setCount(0) },
+              { label: 'Reset counter', action: () => setCount(0) },
               { label: 'Raise', action: () => setCount(count + 1) },
             ].map(({ label, action }) => (
               <Card
