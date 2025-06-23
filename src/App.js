@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Typography, Box, Container } from '@mui/material';
 
 
@@ -8,7 +8,16 @@ import { Button, Typography, Box, Container } from '@mui/material';
 function App() {
 
 
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(
+    () => {
+      const saved = localStorage.getItem('counter-value');
+      return saved !== null ? parseInt(saved, 10) : 0;
+    }
+  );
+
+  useEffect(() => {
+    localStorage.setItem('counter-value', count.toString());
+  }, [count]);
 
 
 
